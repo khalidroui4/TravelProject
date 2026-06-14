@@ -136,7 +136,7 @@ export default function BestPlaces() {
                       
                       {/* Detailed chips */}
                       <div className="flex items-center gap-1.5 mt-1.5">
-                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-rose-50 text-rose-600 text-[9px] font-bold border border-rose-100">
+                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-primary-dark text-white text-[9px] font-bold border-none">
                           <Utensils className="w-2.5 h-2.5" />
                           <span>{item.tag}</span>
                         </span>
@@ -148,7 +148,7 @@ export default function BestPlaces() {
                   </div>
 
                   <div className="text-right shrink-0 flex flex-col items-end gap-1.5 pl-4">
-                    <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5 bg-slate-100 px-2 py-0.5 rounded-md border-none">
                       {item.rating}
                       <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                     </span>
@@ -191,7 +191,7 @@ export default function BestPlaces() {
                       
                       {/* Detailed chips */}
                       <div className="flex items-center gap-1.5 mt-1.5">
-                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-[9px] font-bold border border-indigo-100">
+                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-primary-dark text-white text-[9px] font-bold border-none">
                           <Hotel className="w-2.5 h-2.5" />
                           <span>{item.tag}</span>
                         </span>
@@ -203,7 +203,7 @@ export default function BestPlaces() {
                   </div>
 
                   <div className="text-right shrink-0 flex flex-col items-end gap-1.5 pl-4">
-                    <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5 bg-slate-100 px-2 py-0.5 rounded-md border-none">
                       {item.rating}
                       <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                     </span>
@@ -246,7 +246,7 @@ export default function BestPlaces() {
                       
                       {/* Detailed chips */}
                       <div className="flex items-center gap-1.5 mt-1.5">
-                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-600 text-[9px] font-bold border border-emerald-100">
+                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-primary-dark text-white text-[9px] font-bold border-none">
                           <Compass className="w-2.5 h-2.5" />
                           <span>{item.tag}</span>
                         </span>
@@ -255,7 +255,7 @@ export default function BestPlaces() {
                   </div>
 
                   <div className="text-right shrink-0 flex flex-col items-end gap-1.5 pl-4">
-                    <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5 bg-slate-100 px-2 py-0.5 rounded-md border-none">
                       {item.rating}
                       <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                     </span>

@@ -65,18 +65,34 @@ export default function Footer() {
         </div>
         
         {/* Social Icons row (Follow Us) */}
-        <div className="flex items-center gap-4.5 text-slate-400">
-          <a href="#" className="hover:text-primary hover:scale-110 transition-all duration-200 cursor-pointer" aria-label="Facebook">
-            <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2c4.48-10 10-10c4.9 0 9 3.54 9.88 8.2h-6.9v-2.3h-2.3v2.3H8.3v2.8h2.3v6.9c-4.9-.88-8.2-4.98-8.2-9.88z"/></svg>
+        <div className="flex items-center gap-3">
+          <a 
+            href="#" 
+            className="w-9 h-9 rounded-full bg-primary-dark text-white hover:bg-primary flex items-center justify-center transition-all duration-200 hover:scale-105 cursor-pointer shadow-sm border-none" 
+            aria-label="Facebook"
+          >
+            <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2c4.48-10 10-10c4.9 0 9 3.54 9.88 8.2h-6.9v-2.3h-2.3v2.3H8.3v2.8h2.3v6.9c-4.9-.88-8.2-4.98-8.2-9.88z"/></svg>
           </a>
-          <a href="#" className="hover:text-primary hover:scale-110 transition-all duration-200 cursor-pointer" aria-label="Instagram">
-            <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a 
+            href="#" 
+            className="w-9 h-9 rounded-full bg-primary-dark text-white hover:bg-primary flex items-center justify-center transition-all duration-200 hover:scale-105 cursor-pointer shadow-sm border-none" 
+            aria-label="Instagram"
+          >
+            <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="#" className="hover:text-primary hover:scale-110 transition-all duration-200 cursor-pointer" aria-label="Twitter">
-            <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a 
+            href="#" 
+            className="w-9 h-9 rounded-full bg-primary-dark text-white hover:bg-primary flex items-center justify-center transition-all duration-200 hover:scale-105 cursor-pointer shadow-sm border-none" 
+            aria-label="Twitter"
+          >
+            <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
-          <a href="#" className="hover:text-primary hover:scale-110 transition-all duration-200 cursor-pointer" aria-label="YouTube">
-            <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.52 3.5 12 3.5 12 3.5s-7.52 0-9.388.555a3.003 3.003 0 0 0-2.11 2.108C0 8.03 0 12 0 12s0 3.97.502 5.837a3.003 3.003 0 0 0 2.11 2.108C4.48 20.5 12 20.5 12 20.5s7.52 0 9.388-.555a3.003 3.003 0 0 0 2.11-2.108C24 15.97 24 12 24 12s0-3.97-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a 
+            href="#" 
+            className="w-9 h-9 rounded-full bg-primary-dark text-white hover:bg-primary flex items-center justify-center transition-all duration-200 hover:scale-105 cursor-pointer shadow-sm border-none" 
+            aria-label="YouTube"
+          >
+            <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.52 3.5 12 3.5 12 3.5s-7.52 0-9.388.555a3.003 3.003 0 0 0-2.11 2.108C0 8.03 0 12 0 12s0 3.97.502 5.837a3.003 3.003 0 0 0 2.11 2.108C4.48 20.5 12 20.5 12 20.5s7.52 0 9.388-.555a3.003 3.003 0 0 0 2.11-2.108C24 15.97 24 12 24 12s0-3.97-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
         </div>
       </div>

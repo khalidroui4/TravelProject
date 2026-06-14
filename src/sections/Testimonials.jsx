@@ -39,7 +39,7 @@ export default function Testimonials() {
           
           {/* Left Arrow */}
           <div className="absolute top-1/2 -left-4 -translate-y-1/2 z-10 hidden md:block">
-            <button className="w-8 h-8 rounded-full border border-slate-100 bg-white shadow-sm hover:scale-105 transition-all flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer">
+            <button className="w-8 h-8 rounded-full bg-primary-dark text-white hover:bg-primary hover:scale-105 transition-all flex items-center justify-center cursor-pointer border-none shadow-sm">
               <ChevronLeft className="w-4.5 h-4.5" />
             </button>
           </div>
@@ -88,7 +88,7 @@ export default function Testimonials() {
 
           {/* Right Arrow */}
           <div className="absolute top-1/2 -right-4 -translate-y-1/2 z-10 hidden md:block">
-            <button className="w-8 h-8 rounded-full border border-slate-100 bg-white shadow-sm hover:scale-105 transition-all flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer">
+            <button className="w-8 h-8 rounded-full bg-primary-dark text-white hover:bg-primary hover:scale-105 transition-all flex items-center justify-center cursor-pointer border-none shadow-sm">
               <ChevronRight className="w-4.5 h-4.5" />
             </button>
           </div>

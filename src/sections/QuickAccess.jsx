@@ -12,14 +12,14 @@ import {
 import { motion } from 'framer-motion';
 
 const CATEGORIES = [
-  { name: 'Attractions', icon: Landmark, color: 'text-amber-500', bg: 'bg-amber-50', link: '#best-places' },
-  { name: 'Restaurants', icon: Utensils, color: 'text-rose-500', bg: 'bg-rose-50', link: '#best-places' },
-  { name: 'Hotels', icon: Hotel, color: 'text-indigo-500', bg: 'bg-indigo-50', link: '#best-places' },
-  { name: 'Culture', icon: Globe, color: 'text-teal-500', bg: 'bg-teal-50', link: '#guides' },
-  { name: 'Events', icon: Calendar, color: 'text-purple-500', bg: 'bg-purple-50', link: '#why-choose' },
-  { name: 'Weather', icon: CloudSun, color: 'text-sky-500', bg: 'bg-sky-50', link: '#map-weather' },
-  { name: 'Maps', icon: Map, color: 'text-emerald-500', bg: 'bg-emerald-50', link: '#map-weather' },
-  { name: 'Guides', icon: BookOpen, color: 'text-orange-500', bg: 'bg-orange-50', link: '#guides' },
+  { name: 'Attractions', icon: Landmark, color: 'text-white', bg: 'bg-primary-dark', link: '#best-places' },
+  { name: 'Restaurants', icon: Utensils, color: 'text-white', bg: 'bg-primary-dark', link: '#best-places' },
+  { name: 'Hotels', icon: Hotel, color: 'text-white', bg: 'bg-primary-dark', link: '#best-places' },
+  { name: 'Culture', icon: Globe, color: 'text-white', bg: 'bg-primary-dark', link: '#guides' },
+  { name: 'Events', icon: Calendar, color: 'text-white', bg: 'bg-primary-dark', link: '#why-choose' },
+  { name: 'Weather', icon: CloudSun, color: 'text-white', bg: 'bg-primary-dark', link: '#map-weather' },
+  { name: 'Maps', icon: Map, color: 'text-white', bg: 'bg-primary-dark', link: '#map-weather' },
+  { name: 'Guides', icon: BookOpen, color: 'text-white', bg: 'bg-primary-dark', link: '#guides' },
 ];
 
 const containerVariants = {

@@ -92,7 +92,7 @@ export default function Trending({ onCitySelect, onCountryClick }) {
                     <div className="flex items-center gap-1 bg-black/45 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-white border border-white/10">
                       <span>{city.weather}</span>
                     </div>
-                    <div className="flex items-center gap-1 bg-[#2E8B57] px-2.5 py-1 rounded-full text-[10px] font-bold text-white shadow-sm border border-emerald-400/20">
+                    <div className="flex items-center gap-1 bg-primary px-2.5 py-1 rounded-full text-[10px] font-bold text-white shadow-sm border-none">
                       <Star className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
                       <span>{city.rating}</span>
                     </div>
@@ -107,7 +107,7 @@ export default function Trending({ onCitySelect, onCountryClick }) {
           <div className="hidden lg:flex absolute top-1/2 -right-4 -translate-y-1/2 z-20">
             <button 
               onClick={() => handleExploreClick('tokyo')}
-              className="w-10 h-10 rounded-full bg-white shadow-lg border border-slate-100 flex items-center justify-center text-slate-600 hover:text-primary hover:scale-105 transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-primary-dark hover:bg-primary text-white shadow-lg flex items-center justify-center hover:scale-105 transition-all cursor-pointer border-none"
               aria-label="Next destination"
             >
               <ChevronRight className="w-5 h-5" />

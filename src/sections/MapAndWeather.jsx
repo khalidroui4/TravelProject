@@ -111,7 +111,7 @@ export default function MapAndWeather({ selectedCity, weatherData, onCitySelect,
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-5 text-slate-700">
                 {/* Humidity */}
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-primary-dark text-white flex items-center justify-center shrink-0">
                     <Droplets className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">
@@ -124,7 +124,7 @@ export default function MapAndWeather({ selectedCity, weatherData, onCitySelect,
 
                 {/* Wind */}
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-primary-dark text-white flex items-center justify-center shrink-0">
                     <Wind className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">
@@ -137,7 +137,7 @@ export default function MapAndWeather({ selectedCity, weatherData, onCitySelect,
 
                 {/* UV Index */}
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-primary-dark text-white flex items-center justify-center shrink-0">
                     <Shield className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">
@@ -150,7 +150,7 @@ export default function MapAndWeather({ selectedCity, weatherData, onCitySelect,
 
                 {/* Air Quality */}
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-primary-dark text-white flex items-center justify-center shrink-0">
                     <Activity className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">

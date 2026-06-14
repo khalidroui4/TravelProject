@@ -18,7 +18,7 @@ export default function Newsletter() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Newsletter Box */}
-        <div className="relative rounded-[2rem] bg-gradient-to-br from-[#166534] via-[#2E8B57] to-[#22C55E] p-8 md:p-12 text-left shadow-xl overflow-hidden border border-emerald-400/10">
+        <div className="relative rounded-3xl bg-gradient-to-br from-[#166534] via-[#2E8B57] to-[#22C55E] p-8 md:p-12 text-left shadow-xl overflow-hidden border border-emerald-400/10">
           
           {/* Subtle background glow */}
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl pointer-events-none" />

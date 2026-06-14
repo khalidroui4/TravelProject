@@ -13,36 +13,36 @@ const FEATURES = [
     title: 'All-In-One Info',
     desc: 'Everything about a city in one place.',
     icon: Compass,
-    color: 'text-emerald-500',
-    bg: 'bg-emerald-50'
+    color: 'text-white',
+    bg: 'bg-primary-dark'
   },
   {
     title: 'Live Weather',
     desc: 'Real-time weather and forecasts.',
     icon: CloudSun,
-    color: 'text-sky-500',
-    bg: 'bg-sky-50'
+    color: 'text-white',
+    bg: 'bg-primary-dark'
   },
   {
     title: 'Curated Places',
     desc: 'Top attractions, restaurants and hotels.',
     icon: MapPin,
-    color: 'text-rose-500',
-    bg: 'bg-rose-50'
+    color: 'text-white',
+    bg: 'bg-primary-dark'
   },
   {
     title: 'Trusted Guides',
     desc: 'Local insights and travel expert tips.',
     icon: ShieldCheck,
-    color: 'text-indigo-500',
-    bg: 'bg-indigo-50'
+    color: 'text-white',
+    bg: 'bg-primary-dark'
   },
   {
     title: 'Easy to Use',
     desc: 'Plan your trip fast and effortlessly.',
     icon: Zap,
-    color: 'text-amber-500',
-    bg: 'bg-amber-50'
+    color: 'text-white',
+    bg: 'bg-primary-dark'
   }
 ];
 
