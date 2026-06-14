@@ -8,7 +8,7 @@ export default function Footer() {
         
         {/* Left Column: Brand Details */}
         <div className="lg:col-span-2">
-          <a href="#" className="flex items-center gap-2 mb-4 group w-fit">
+          <a href="#home" className="flex items-center gap-2 mb-4 group w-fit">
             <div className="w-8.5 h-8.5 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-200">
               <img src="/EzTravel.png" alt="EzTravel" className="w-full h-full object-cover" />
             </div>
@@ -27,9 +27,9 @@ export default function Footer() {
           <ul className="space-y-2.5 text-xs font-semibold">
             <li><a href="#explore" className="hover:text-primary transition-colors text-grayText">Explore Cities</a></li>
             <li><a href="#trending" className="hover:text-primary transition-colors text-grayText">Top Destinations</a></li>
-            <li><a href="#best-places" className="hover:text-primary transition-colors text-grayText">Attractions</a></li>
-            <li><a href="#guides" className="hover:text-primary transition-colors text-grayText">Guides</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Travel News</a></li>
+            <li><a href="#explore" className="hover:text-primary transition-colors text-grayText">Attractions</a></li>
+            <li><a href="#home" className="hover:text-primary transition-colors text-grayText">Guides</a></li>
+            <li><a href="#explore" className="hover:text-primary transition-colors text-grayText">Travel News</a></li>
           </ul>
         </div>
 
@@ -37,11 +37,11 @@ export default function Footer() {
         <div>
           <h4 className="text-slate-800 font-bold text-xs tracking-wider uppercase mb-4 font-sans">Company</h4>
           <ul className="space-y-2.5 text-xs font-semibold">
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">About Us</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Contact Us</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Careers</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Terms of Service</a></li>
+            <li><a href="#about" className="hover:text-primary transition-colors text-grayText">About Us</a></li>
+            <li><a href="#contact" className="hover:text-primary transition-colors text-grayText">Contact Us</a></li>
+            <li><a href="#careers" className="hover:text-primary transition-colors text-grayText">Careers</a></li>
+            <li><a href="#privacy" className="hover:text-primary transition-colors text-grayText">Privacy Policy</a></li>
+            <li><a href="#terms" className="hover:text-primary transition-colors text-grayText">Terms of Service</a></li>
           </ul>
         </div>
 
@@ -49,10 +49,10 @@ export default function Footer() {
         <div>
           <h4 className="text-slate-800 font-bold text-xs tracking-wider uppercase mb-4 font-sans">Support</h4>
           <ul className="space-y-2.5 text-xs font-semibold">
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Help Center</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">FAQ</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Contact Support</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors text-grayText">Feedback</a></li>
+            <li><a href="#faq" className="hover:text-primary transition-colors text-grayText">Help Center</a></li>
+            <li><a href="#faq" className="hover:text-primary transition-colors text-grayText">FAQ</a></li>
+            <li><a href="#contact" className="hover:text-primary transition-colors text-grayText">Contact Support</a></li>
+            <li><a href="#feedback" className="hover:text-primary transition-colors text-grayText">Feedback</a></li>
           </ul>
         </div>
 

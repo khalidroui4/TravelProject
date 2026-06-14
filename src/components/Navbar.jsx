@@ -26,7 +26,7 @@ export default function Navbar({ onSearchClick }) {
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-8 flex items-center justify-between">
         
         {/* Left: Logo + Subtitle (exactly like screenshot) */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <a href="#home" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md shadow-primary/15 group-hover:scale-105 transition-transform duration-200">
             <img src="/EzTravel.png" alt="EzTravel" className="w-full h-full object-cover" />
           </div>
@@ -42,7 +42,7 @@ export default function Navbar({ onSearchClick }) {
 
         {/* Center: Nav links */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#" className="font-bold text-xs uppercase tracking-wider text-primary hover:text-primary-dark transition-colors">
+          <a href="#home" className="font-bold text-xs uppercase tracking-wider text-primary hover:text-primary-dark transition-colors">
             Home
           </a>
           <a href="#explore" className="font-bold text-xs uppercase tracking-wider text-slate-500 hover:text-primary transition-colors">
@@ -106,7 +106,7 @@ export default function Navbar({ onSearchClick }) {
       {isMobileMenuOpen && (
         <div className="absolute top-20 left-0 right-0 bg-white border-b border-[#E5E7EB] shadow-lg py-6 px-6 flex flex-col gap-5 md:hidden z-40 animate-in fade-in slide-in-from-top-5 duration-200 text-left">
           <a 
-            href="#" 
+            href="#home" 
             onClick={() => setIsMobileMenuOpen(false)}
             className="font-bold text-xs uppercase tracking-wider text-primary py-1 border-b border-slate-50"
           >

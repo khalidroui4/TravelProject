@@ -13,6 +13,17 @@ import WhyChooseUs from './sections/WhyChooseUs';
 import Testimonials from './sections/Testimonials';
 import Newsletter from './sections/Newsletter';
 
+// Import New Pages
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import CareersPage from './pages/CareersPage';
+import FAQPage from './pages/FAQPage';
+import FeedbackPage from './pages/FeedbackPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
+import ExplorePage from './pages/ExplorePage';
+import TrendingPage from './pages/TrendingPage';
+
 import { fetchWeather, fetchCityImage } from './services/apiService';
 
 // Default starter city: Paris
@@ -28,10 +39,30 @@ export default function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [cityImage, setCityImage] = useState('');
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState('home');
   
   // Country Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCountry, setActiveCountry] = useState('');
+
+  // Hash Router Listener
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      const validPages = ['home', 'explore', 'trending', 'about', 'contact', 'careers', 'privacy', 'terms', 'faq', 'feedback'];
+      if (hash && validPages.includes(hash)) {
+        setCurrentPage(hash);
+      } else {
+        setCurrentPage('home');
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // Run on mount
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Fetch weather and landscape image when selectedCity changes
   useEffect(() => {
@@ -75,10 +106,19 @@ export default function App() {
   };
 
   const handleTriggerSearch = () => {
-    // Scroll smoothly to search input in Hero section
-    const searchSection = document.getElementById('root');
-    if (searchSection) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage !== 'home') {
+      window.location.hash = 'home';
+      setTimeout(() => {
+        const searchSection = document.getElementById('root');
+        if (searchSection) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      const searchSection = document.getElementById('root');
+      if (searchSection) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
@@ -89,54 +129,80 @@ export default function App() {
       <Navbar onSearchClick={handleTriggerSearch} />
 
       {/* Main Layout Content */}
-      <main className="flex-grow">
+      <main className="flex-grow pt-20">
         
-        {/* Section 1: Hero Section */}
-        <Hero
-          selectedCity={selectedCity}
-          weatherData={weatherData}
-          cityImage={cityImage}
-          onCitySelect={handleCitySelect}
-          onCountryClick={handleCountryClick}
-        />
+        {currentPage === 'home' && (
+          <>
+            {/* Section 1: Hero Section */}
+            <Hero
+              selectedCity={selectedCity}
+              weatherData={weatherData}
+              cityImage={cityImage}
+              onCitySelect={handleCitySelect}
+              onCountryClick={handleCountryClick}
+            />
 
-        {/* Section 2: Quick Access Categories */}
-        <QuickAccess />
+            {/* Section 2: Quick Access Categories */}
+            <QuickAccess />
 
-        {/* Section 3: Trending Destinations */}
-        <Trending 
-          onCitySelect={handleCitySelect} 
-          onCountryClick={handleCountryClick} 
-        />
+            {/* Section 3: Trending Destinations */}
+            <Trending 
+              onCitySelect={handleCitySelect} 
+              onCountryClick={handleCountryClick} 
+            />
 
-        {/* Section 4: Explore Cities Grid */}
-        <ExploreGrid 
-          onCitySelect={handleCitySelect} 
-          onCountryClick={handleCountryClick} 
-        />
+            {/* Section 4: Explore Cities Grid */}
+            <ExploreGrid 
+              onCitySelect={handleCitySelect} 
+              onCountryClick={handleCountryClick} 
+            />
 
-        {/* Section 5: Best Places to Visit recommendations columns */}
-        <BestPlaces />
+            {/* Section 5: Best Places to Visit recommendations columns */}
+            <BestPlaces />
 
-        {/* Section 6: Interactive Leaflet Map & Weather Forecast table */}
-        <MapAndWeather
-          selectedCity={selectedCity}
-          weatherData={weatherData}
-          onCitySelect={handleCitySelect}
-          loading={loading}
-        />
+            {/* Section 6: Interactive Leaflet Map & Weather Forecast table */}
+            <MapAndWeather
+              selectedCity={selectedCity}
+              weatherData={weatherData}
+              onCitySelect={handleCitySelect}
+              loading={loading}
+            />
 
-        {/* Section 7: Culture and Travel Articles */}
-        <CultureGuides onCitySelect={handleCitySelect} />
+            {/* Section 7: Culture and Travel Articles */}
+            <CultureGuides onCitySelect={handleCitySelect} />
 
-        {/* Section 8: Why Choose Us highlights */}
-        <WhyChooseUs />
+            {/* Section 8: Why Choose Us highlights */}
+            <WhyChooseUs />
 
-        {/* Section 9: Traveler Testimonials review slider */}
-        <Testimonials />
+            {/* Section 9: Traveler Testimonials review slider */}
+            <Testimonials />
 
-        {/* Section 10: Email Subscription Newsletter */}
-        <Newsletter />
+            {/* Section 10: Email Subscription Newsletter */}
+            <Newsletter />
+          </>
+        )}
+
+        {currentPage === 'explore' && (
+          <ExplorePage onCitySelect={handleCitySelect} onCountryClick={handleCountryClick} />
+        )}
+
+        {currentPage === 'trending' && (
+          <TrendingPage onCitySelect={handleCitySelect} onCountryClick={handleCountryClick} />
+        )}
+
+        {currentPage === 'about' && <AboutPage />}
+
+        {currentPage === 'contact' && <ContactPage />}
+
+        {currentPage === 'careers' && <CareersPage />}
+
+        {currentPage === 'faq' && <FAQPage />}
+
+        {currentPage === 'feedback' && <FeedbackPage />}
+
+        {currentPage === 'privacy' && <PrivacyPage />}
+
+        {currentPage === 'terms' && <TermsPage />}
 
       </main>
 
