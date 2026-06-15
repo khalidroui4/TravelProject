@@ -1,8 +1,9 @@
 import React from 'react';
-import { Star, ChevronRight } from 'lucide-react';
+import { Star, ChevronRight, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { searchCities } from '../services/apiService';
 import ImageWithLoader from '../components/ImageWithLoader';
+import { backendService } from '../services/backendService';
 
 const FEATURED_CITIES = [
   { key: 'paris', name: 'Paris', country: 'France', rating: 4.8, weather: '🌤 24°C', tag: '🏰 Landmark', img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80' },
@@ -70,6 +71,41 @@ export default function Trending({ onCitySelect, onCountryClick }) {
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold text-primary shadow-sm">
                     {city.tag}
                   </div>
+
+                  {/* Top right Heart/Save button */}
+                  <button
+                    onClick={async (e) => {
+                      e.stopPropagation();
+                      if (!backendService.isAuthenticated()) {
+                        window.location.hash = 'signin';
+                        return;
+                      }
+                      try {
+                        const coordinates = {
+                          paris: { lat: 48.8566, lon: 2.3522 },
+                          tokyo: { lat: 35.6762, lon: 139.6503 },
+                          'new york': { lat: 40.7128, lon: -74.0060 },
+                          dubai: { lat: 25.2048, lon: 55.2708 },
+                        };
+                        const coords = coordinates[city.key] || { lat: 0, lon: 0 };
+                        await backendService.addFavorite({
+                          name: city.name,
+                          country: city.country,
+                          lat: coords.lat,
+                          lon: coords.lon,
+                          rating: city.rating,
+                          image: city.img
+                        });
+                        alert(`${city.name} added to favorites!`);
+                      } catch (err) {
+                        alert(err.message || 'Already in favorites.');
+                      }
+                    }}
+                    className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-slate-400 hover:text-red-500 p-2 rounded-full shadow-sm transition-colors border-none cursor-pointer z-10"
+                    title="Save Destination"
+                  >
+                    <Heart className="w-4 h-4" />
+                  </button>
 
                   {/* Left bottom details */}
                   <div className="absolute bottom-5 left-5 text-left text-white">

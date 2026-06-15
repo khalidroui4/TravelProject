@@ -9,10 +9,12 @@ import {
   CloudRain, 
   CloudSnow, 
   CloudLightning,
-  Loader2
+  Loader2,
+  Heart
 } from 'lucide-react';
 import { fetchWeather, searchCities } from '../services/apiService';
 import ImageWithLoader from '../components/ImageWithLoader';
+import { backendService } from '../services/backendService';
 
 const ICON_MAP = {
   Sun,
@@ -130,6 +132,34 @@ export default function ExploreGrid({ onCitySelect, onCountryClick }) {
                       </>
                     )}
                   </div>
+
+                  {/* Heart/Save overlay button */}
+                  <button
+                    onClick={async (e) => {
+                      e.stopPropagation();
+                      if (!backendService.isAuthenticated()) {
+                        window.location.hash = 'signin';
+                        return;
+                      }
+                      try {
+                        await backendService.addFavorite({
+                          name: city.name,
+                          country: city.country,
+                          lat: city.lat,
+                          lon: city.lon,
+                          rating: null,
+                          image: city.img
+                        });
+                        alert(`${city.name} added to favorites!`);
+                      } catch (err) {
+                        alert(err.message || 'Already in favorites.');
+                      }
+                    }}
+                    className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm hover:bg-white text-slate-400 hover:text-red-500 p-1.5 rounded-full shadow-sm transition-colors border-none cursor-pointer z-10"
+                    title="Save Destination"
+                  >
+                    <Heart className="w-3.5 h-3.5" />
+                  </button>
                 </div>
 
                 {/* Info Text below */}

@@ -23,6 +23,9 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import ExplorePage from './pages/ExplorePage';
 import TrendingPage from './pages/TrendingPage';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
+import ProfilePage from './pages/ProfilePage';
 
 import { fetchWeather, fetchCityImage } from './services/apiService';
 
@@ -40,17 +43,44 @@ export default function App() {
   const [cityImage, setCityImage] = useState('');
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState('home');
+  const [currentUser, setCurrentUser] = useState(null);
   
   // Country Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCountry, setActiveCountry] = useState('');
 
+  // Sync user state from localStorage on mount
+  useEffect(() => {
+    const userStr = localStorage.getItem('eztravel_user');
+    const token = localStorage.getItem('eztravel_token');
+    if (userStr && token) {
+      try {
+        setCurrentUser(JSON.parse(userStr));
+      } catch (e) {
+        localStorage.removeItem('eztravel_user');
+        localStorage.removeItem('eztravel_token');
+      }
+    }
+  }, []);
+
   // Hash Router Listener
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'explore', 'trending', 'about', 'contact', 'careers', 'privacy', 'terms', 'faq', 'feedback'];
+      const validPages = [
+        'home', 'explore', 'trending', 'about', 'contact', 
+        'careers', 'privacy', 'terms', 'faq', 'feedback', 
+        'signin', 'signup', 'profile'
+      ];
       if (hash && validPages.includes(hash)) {
+        if (hash === 'profile' && !localStorage.getItem('eztravel_token')) {
+          window.location.hash = 'signin';
+          return;
+        }
+        if ((hash === 'signin' || hash === 'signup') && localStorage.getItem('eztravel_token')) {
+          window.location.hash = 'profile';
+          return;
+        }
         setCurrentPage(hash);
       } else {
         setCurrentPage('home');
@@ -126,7 +156,7 @@ export default function App() {
     <div className="min-h-screen bg-[#F8FAFC] flex flex-col text-[#1F2937] font-sans selection:bg-primary/20">
       
       {/* Sticky Navigation Bar */}
-      <Navbar onSearchClick={handleTriggerSearch} />
+      <Navbar onSearchClick={handleTriggerSearch} user={currentUser} onLogoutSuccess={() => setCurrentUser(null)} />
 
       {/* Main Layout Content */}
       <main className="flex-grow pt-20">
@@ -203,6 +233,32 @@ export default function App() {
         {currentPage === 'privacy' && <PrivacyPage />}
 
         {currentPage === 'terms' && <TermsPage />}
+
+        {currentPage === 'signin' && (
+          <SignInPage onLoginSuccess={(user) => {
+            setCurrentUser(user);
+            window.location.hash = 'profile';
+          }} />
+        )}
+
+        {currentPage === 'signup' && (
+          <SignUpPage onLoginSuccess={(user) => {
+            setCurrentUser(user);
+            window.location.hash = 'profile';
+          }} />
+        )}
+
+        {currentPage === 'profile' && (
+          <ProfilePage
+            user={currentUser}
+            onProfileUpdate={(updatedUser) => setCurrentUser(updatedUser)}
+            onLogoutSuccess={() => {
+              setCurrentUser(null);
+              window.location.hash = 'home';
+            }}
+            onCitySelect={handleCitySelect}
+          />
+        )}
 
       </main>
 
