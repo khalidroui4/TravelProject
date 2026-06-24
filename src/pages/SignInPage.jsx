@@ -77,6 +77,7 @@ export default function SignInPage({ onLoginSuccess }) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your.email@example.com"
+                  autoComplete="email"
                   className="bg-transparent border-none outline-none text-slate-800 placeholder-slate-400 font-semibold text-xs py-1 w-full"
                   required
                 />
@@ -95,6 +96,7 @@ export default function SignInPage({ onLoginSuccess }) {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
+                  autoComplete="current-password"
                   className="bg-transparent border-none outline-none text-slate-800 placeholder-slate-400 font-semibold text-xs py-1 w-full"
                   required
                 />

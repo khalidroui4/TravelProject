@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Toast from './components/Toast';
 import CountryModal from './components/CountryModal';
 import Hero from './sections/Hero';
 import QuickAccess from './sections/QuickAccess';
@@ -28,6 +30,7 @@ import SignUpPage from './pages/SignUpPage';
 import ProfilePage from './pages/ProfilePage';
 
 import { fetchWeather, fetchCityImage } from './services/apiService';
+import { backendService } from './services/backendService';
 
 // Default starter city: Paris
 const DEFAULT_CITY = {
@@ -48,6 +51,69 @@ export default function App() {
   // Country Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCountry, setActiveCountry] = useState('');
+
+  // Toast Notification state
+  const [notification, setNotification] = useState(null);
+
+  useEffect(() => {
+    window.showToast = (message, type = 'success') => {
+      setNotification({ message, type });
+    };
+    return () => {
+      window.showToast = null;
+    };
+  }, []);
+
+  const [userFavorites, setUserFavorites] = useState([]);
+
+  // Fetch favorites on user change
+  useEffect(() => {
+    if (currentUser) {
+      backendService.getFavorites()
+        .then(favs => setUserFavorites(favs))
+        .catch(err => console.error(err));
+    } else {
+      setUserFavorites([]);
+    }
+  }, [currentUser]);
+
+  const handleFavoriteToggle = async (cityData) => {
+    if (!currentUser) {
+      window.location.hash = 'signin';
+      return;
+    }
+
+    const existingFav = userFavorites.find(
+      f => f.city_name.toLowerCase() === cityData.name.toLowerCase()
+    );
+
+    if (existingFav) {
+      // Remove favorite
+      try {
+        await backendService.removeFavorite(existingFav.id);
+        setUserFavorites(prev => prev.filter(f => f.id !== existingFav.id));
+        window.showToast?.(`${cityData.name} removed from favorites.`, 'success');
+      } catch (err) {
+        window.showToast?.(err.message || 'Failed to remove from favorites.', 'error');
+      }
+    } else {
+      // Add favorite
+      try {
+        const newFav = await backendService.addFavorite({
+          name: cityData.name,
+          country: cityData.country,
+          lat: cityData.lat,
+          lon: cityData.lon,
+          rating: cityData.rating || null,
+          image: cityData.image || null
+        });
+        setUserFavorites(prev => [newFav, ...prev]);
+        window.showToast?.(`${cityData.name} added to favorites!`, 'success');
+      } catch (err) {
+        window.showToast?.(err.message || 'Failed to add to favorites.', 'error');
+      }
+    }
+  };
 
   // Sync user state from localStorage on mount
   useEffect(() => {
@@ -179,12 +245,16 @@ export default function App() {
             <Trending 
               onCitySelect={handleCitySelect} 
               onCountryClick={handleCountryClick} 
+              favorites={userFavorites}
+              onFavoriteToggle={handleFavoriteToggle}
             />
 
             {/* Section 4: Explore Cities Grid */}
             <ExploreGrid 
               onCitySelect={handleCitySelect} 
               onCountryClick={handleCountryClick} 
+              favorites={userFavorites}
+              onFavoriteToggle={handleFavoriteToggle}
             />
 
             {/* Section 5: Best Places to Visit recommendations columns */}
@@ -271,6 +341,17 @@ export default function App() {
         onClose={() => setIsModalOpen(false)}
         countryName={activeCountry}
       />
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {notification && (
+          <Toast
+            message={notification.message}
+            type={notification.type}
+            onClose={() => setNotification(null)}
+          />
+        )}
+      </AnimatePresence>
 
     </div>
   );

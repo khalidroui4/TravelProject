@@ -25,7 +25,7 @@ export default function Navbar({ onSearchClick, user, onLogoutSuccess }) {
     >
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Left: Logo + Subtitle (exactly like screenshot) */}
+        {/* Left: Logo + Subtitle */}
         <a href="#home" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md shadow-primary/15 group-hover:scale-105 transition-transform duration-200">
             <img src="/EzTravel.png" alt="EzTravel" className="w-full h-full object-cover" />
@@ -56,11 +56,11 @@ export default function Navbar({ onSearchClick, user, onLogoutSuccess }) {
           </a>
         </nav>
 
-        {/* Right: Language Selector + Sign In Button (exactly like screenshot) */}
+        {/* Right: Language Selector + Sign In Button */}
         <div className="hidden md:flex items-center gap-4">
           
           {/* EN selector with dropdown arrow */}
-          <button className="flex items-center gap-1.5 px-3 py-2 text-slate-500 hover:text-slate-700 transition-colors text-xs font-bold uppercase tracking-wider cursor-pointer">
+          <button className="flex items-center gap-1.5 px-3 py-2 text-slate-550 hover:text-slate-700 transition-colors text-xs font-bold uppercase tracking-wider cursor-pointer">
             <Globe className="w-3.5 h-3.5 text-slate-400" />
             <span>EN</span>
             <ChevronDown className="w-3 h-3 text-slate-400" />
@@ -69,7 +69,7 @@ export default function Navbar({ onSearchClick, user, onLogoutSuccess }) {
           {/* Search trigger icon */}
           <button 
             onClick={onSearchClick}
-            className="p-2.5 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-full transition-colors cursor-pointer"
+            className="p-2.5 text-slate-550 hover:text-primary hover:bg-slate-50 rounded-full transition-colors cursor-pointer"
             aria-label="Search"
           >
             <Search className="w-4.5 h-4.5" />
@@ -100,14 +100,14 @@ export default function Navbar({ onSearchClick, user, onLogoutSuccess }) {
         <div className="flex md:hidden items-center gap-3">
           <button 
             onClick={onSearchClick}
-            className="p-2 text-slate-500 hover:text-primary rounded-full"
+            className="p-2 text-slate-555 hover:text-primary rounded-full animate-none"
             aria-label="Search"
           >
             <Search className="w-5 h-5" />
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-slate-500 hover:text-primary rounded-xl hover:bg-slate-100 transition-colors"
+            className="p-2 text-slate-555 hover:text-primary rounded-xl hover:bg-slate-100 transition-colors"
             aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X className="w-5.5 h-5.5" /> : <Menu className="w-5.5 h-5.5" />}

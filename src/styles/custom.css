@@ -1,32 +1,35 @@
 /* Premium Custom CSS Styles */
 
-/* Glassmorphism */
+/* Glassmorphism - Confident and Sharp */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 4px;
 }
 
 .glass-panel-dark {
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 0.08);
 }
 
 /* Custom Scrollbar for Horizontal Scroll Cards */
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -69,7 +72,7 @@
 
 /* Premium Map Overrides */
 .leaflet-container {
-  font-family: 'Inter', sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   border-radius: 1.5rem !important;
   background-color: #0f172a !important; /* Dark map canvas fallback */
 }
@@ -96,7 +99,9 @@
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px) !important;
   border-radius: 1rem !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
   color: #1f2937 !important;
   padding: 2px !important;
@@ -108,7 +113,8 @@
 
 /* Micro animations */
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.8;
   }
@@ -124,7 +130,7 @@
 
 /* Gradient text */
 .text-gradient-green {
-  background: linear-gradient(135deg, #2E8B57 0%, #22C55E 100%);
+  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -143,4 +149,59 @@
   background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
+}
+
+/* Premium Glass & Travel widgets */
+.travel-glow-marker {
+  box-shadow:
+    0 0 15px rgba(22, 163, 74, 0.6),
+    inset 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.editorial-header {
+  font-family: "Outfit", "Inter", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.card-overlay-gradient {
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.9) 0%,
+    rgba(15, 23, 42, 0.2) 60%,
+    transparent 100%
+  );
+}
+
+.dashed-route-path {
+  stroke-dasharray: 6, 6;
+  animation: route-flow 20s infinite linear;
+}
+
+@keyframes route-flow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Architectural dividers & Double line journal styles */
+.solid-shadow-slate {
+  border: 1px solid #0f172a;
+  box-shadow: 5px 5px 0px 0px #0f172a;
+}
+
+.solid-shadow-primary {
+  border: 1px solid #16a34a;
+  box-shadow: 5px 5px 0px 0px #16a34a;
+}
+
+.solid-shadow-accent {
+  border: 1px solid #f59e0b;
+  box-shadow: 5px 5px 0px 0px #f59e0b;
+}
+
+.journal-frame {
+  border: 3px double #d1c7bd;
+  background-color: #faf6f0;
+  color: #2d251e;
 }

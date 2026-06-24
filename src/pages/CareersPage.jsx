@@ -39,7 +39,7 @@ const JOBS = [
 
 export default function CareersPage() {
   const handleApplyClick = (title) => {
-    alert(`Thank you for your interest in the ${title} role! Please send your resume to careers@eztravel.com.`);
+    window.showToast?.(`Thank you for your interest in the ${title} role! Please send your resume to careers@eztravel.com.`, 'info');
   };
 
   return (

@@ -38,7 +38,7 @@ const itemVariants = {
 
 export default function QuickAccess() {
   return (
-    <section className="py-8 bg-white border-b border-[#E5E7EB]">
+    <section className="py-8 bg-emerald-50/20 border-b border-slate-100 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         <motion.div 
@@ -55,9 +55,9 @@ export default function QuickAccess() {
                 key={index}
                 href={cat.link}
                 variants={itemVariants}
-                className="group flex flex-col items-center justify-center p-4 rounded-2xl border border-slate-150 bg-white hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-premium hover:-translate-y-1"
+                className="group flex flex-col items-center justify-center p-4 rounded-2xl border border-slate-100 bg-white hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-premium hover:-translate-y-1"
               >
-                <div className={`w-12 h-12 rounded-xl ${cat.bg} flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform duration-200`}>
+                <div className={`w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform duration-200`}>
                   <Icon className={`w-5.5 h-5.5 ${cat.color}`} />
                 </div>
                 <span className="text-[11px] font-bold text-slate-600 group-hover:text-primary transition-colors">
@@ -67,7 +67,7 @@ export default function QuickAccess() {
             );
           })}
         </motion.div>
-
+ 
       </div>
     </section>
   );

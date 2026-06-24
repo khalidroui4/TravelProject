@@ -150,6 +150,33 @@ export const backendService = {
     return handleResponse(response);
   },
 
+  // Admin: Get all users
+  async getAdminUsers() {
+    const response = await fetch(`${API_BASE_URL}/admin/users`, {
+      method: 'GET',
+      headers: getHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  // Admin: Delete user
+  async deleteAdminUser(id) {
+    const response = await fetch(`${API_BASE_URL}/admin/users/${id}`, {
+      method: 'DELETE',
+      headers: getHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  // Get country details (REST Countries API proxy to bypass CORS)
+  async getCountryDetails(countryName) {
+    const response = await fetch(`${API_BASE_URL}/country/${encodeURIComponent(countryName)}`, {
+      method: 'GET',
+      headers: getHeaders(),
+    });
+    return handleResponse(response);
+  },
+
   // Helper to check authentication state locally
   isAuthenticated() {
     return !!localStorage.getItem('eztravel_token');

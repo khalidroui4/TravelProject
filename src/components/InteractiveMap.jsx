@@ -20,38 +20,38 @@ function MapController({ center }) {
   const map = useMap();
   useEffect(() => {
     if (center) {
-      map.flyTo(center, 10, {
-        duration: 2.0,
-        easeLinearity: 0.25
+      map.flyTo(center, 9, {
+        duration: 2.2,
+        easeLinearity: 0.2
       });
     }
   }, [center, map]);
   return null;
 }
 
-// Custom Leaflet DivIcon with premium green pulsing marker styling
+// Custom Leaflet DivIcon with premium glowing neon pulsing marker styling
 const customMarkerIcon = L.divIcon({
   className: 'custom-map-pin',
   html: `
-    <div class="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/60 shadow-lg relative">
-      <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-      <div class="w-3.5 h-3.5 bg-emerald-600 rounded-full border border-white shadow-inner relative z-10"></div>
+    <div class="flex items-center justify-center w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/40 relative shadow-[0_0_15px_rgba(22,163,74,0.6)]">
+      <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400/35 opacity-75 animate-ping"></span>
+      <div class="w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-slate-950 shadow-[0_0_8px_#10b981] relative z-10"></div>
     </div>
   `,
-  iconSize: [32, 32],
-  iconAnchor: [16, 16],
-  popupAnchor: [0, -12],
+  iconSize: [36, 36],
+  iconAnchor: [18, 18],
+  popupAnchor: [0, -14],
 });
 
 export default function InteractiveMap({ selectedCity, onMarkerClick }) {
   const mapCenter = selectedCity ? [selectedCity.lat, selectedCity.lon] : [48.8566, 2.3522]; // Paris default
 
   return (
-    <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-premium relative border border-slate-200 bg-slate-100">
+    <div className="w-full h-[450px] md:h-[520px] rounded-3xl overflow-hidden shadow-2xl relative border border-slate-800 bg-slate-950">
       {/* Top Banner overlay indicator */}
-      <div className="absolute top-4 left-4 z-[1000] bg-white border border-slate-200/80 text-slate-800 text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-2 shadow-md">
+      <div className="absolute top-4 left-4 z-[1000] bg-slate-900/95 border border-slate-800 text-white text-xs font-bold px-3.5 py-2.5 rounded-full flex items-center gap-2 shadow-lg backdrop-blur-md">
         <Navigation className="w-3.5 h-3.5 text-primary animate-pulse" />
-        <span>Interactive Travel Map (CartoDB Voyager)</span>
+        <span>Satellite Geotarget (CartoDB Dark Matter)</span>
       </div>
 
       <MapContainer 
@@ -62,7 +62,7 @@ export default function InteractiveMap({ selectedCity, onMarkerClick }) {
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         />
         
         {/* Custom Marker instances */}
@@ -83,14 +83,14 @@ export default function InteractiveMap({ selectedCity, onMarkerClick }) {
             }}
           >
             <Popup>
-              <div className="p-1 font-sans">
-                <h4 className="font-bold text-sm text-slate-800 flex items-center gap-1">
+              <div className="p-1 font-sans text-slate-200">
+                <h4 className="font-extrabold text-sm text-white flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-primary" />
                   <span>{marker.name}</span>
                 </h4>
-                <p className="text-[10px] text-grayText mt-0.5">{marker.desc}</p>
-                <div className="mt-1.5 flex justify-end">
-                  <span className="text-[9px] font-bold bg-emerald-50 text-primary px-1.5 py-0.5 rounded-full">
+                <p className="text-[10px] text-slate-400 mt-1">{marker.desc}</p>
+                <div className="mt-2.5 flex justify-end">
+                  <span className="text-[9px] font-extrabold bg-primary/20 text-primary border border-primary/20 px-2 py-0.5 rounded-md">
                     View Weather
                   </span>
                 </div>

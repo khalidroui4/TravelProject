@@ -101,11 +101,18 @@ const CULTURE = [
 
 export default function BestPlaces() {
   return (
-    <section id="best-places" className="py-12 bg-white border-b border-[#E5E7EB]">
+    <section id="best-places" className="py-20 bg-emerald-50/30 border-b border-slate-100 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
+        {/* Subtle background route paths */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none select-none">
+          <svg className="w-[800px] h-[400px] text-slate-900" viewBox="0 0 800 400" fill="none" stroke="currentColor">
+            <path d="M50 200 C 200 50, 400 350, 750 200" strokeWidth="2" strokeDasharray="5 5" />
+          </svg>
+        </div>
+        
         {/* 3-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 relative z-10">
           
           {/* Column 1: Top Restaurants */}
           <motion.div 

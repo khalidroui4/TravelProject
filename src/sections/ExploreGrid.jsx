@@ -10,11 +10,12 @@ import {
   CloudSnow, 
   CloudLightning,
   Loader2,
-  Heart
+  Heart,
+  MapPin,
+  Compass
 } from 'lucide-react';
 import { fetchWeather, searchCities } from '../services/apiService';
 import ImageWithLoader from '../components/ImageWithLoader';
-import { backendService } from '../services/backendService';
 
 const ICON_MAP = {
   Sun,
@@ -36,7 +37,7 @@ const EXPLORE_CITIES = [
   { name: 'Bali', country: 'Indonesia', lat: -8.4095, lon: 115.1889, flag: '🇮🇩', tag: '🏖 Nature', img: 'https://images.unsplash.com/photo-1518548419070-ad867980724d?auto=format&fit=crop&w=350&q=80' }
 ];
 
-export default function ExploreGrid({ onCitySelect, onCountryClick }) {
+export default function ExploreGrid({ onCitySelect, onCountryClick, favorites = [], onFavoriteToggle }) {
   const [cityWeatherData, setCityWeatherData] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -73,7 +74,7 @@ export default function ExploreGrid({ onCitySelect, onCountryClick }) {
   };
 
   return (
-    <section id="explore" className="py-12 bg-[#F8FAFC] border-b border-[#E5E7EB]">
+    <section id="explore" className="py-12 bg-slate-50 border-b border-[#E5E7EB]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
@@ -95,6 +96,9 @@ export default function ExploreGrid({ onCitySelect, onCountryClick }) {
           {EXPLORE_CITIES.map((city, idx) => {
             const weather = cityWeatherData[city.name];
             const WeatherIcon = weather ? (ICON_MAP[weather.weatherIcon] || CloudSun) : null;
+            const isSaved = favorites.some(
+              f => f.city_name.toLowerCase() === city.name.toLowerCase()
+            );
 
             return (
               <motion.div
@@ -135,14 +139,10 @@ export default function ExploreGrid({ onCitySelect, onCountryClick }) {
 
                   {/* Heart/Save overlay button */}
                   <button
-                    onClick={async (e) => {
+                    onClick={(e) => {
                       e.stopPropagation();
-                      if (!backendService.isAuthenticated()) {
-                        window.location.hash = 'signin';
-                        return;
-                      }
-                      try {
-                        await backendService.addFavorite({
+                      if (onFavoriteToggle) {
+                        onFavoriteToggle({
                           name: city.name,
                           country: city.country,
                           lat: city.lat,
@@ -150,15 +150,12 @@ export default function ExploreGrid({ onCitySelect, onCountryClick }) {
                           rating: null,
                           image: city.img
                         });
-                        alert(`${city.name} added to favorites!`);
-                      } catch (err) {
-                        alert(err.message || 'Already in favorites.');
                       }
                     }}
                     className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm hover:bg-white text-slate-400 hover:text-red-500 p-1.5 rounded-full shadow-sm transition-colors border-none cursor-pointer z-10"
-                    title="Save Destination"
+                    title={isSaved ? "Remove Favorite" : "Save Destination"}
                   >
-                    <Heart className="w-3.5 h-3.5" />
+                    <Heart className={`w-3.5 h-3.5 transition-colors ${isSaved ? 'text-red-500 fill-red-550' : 'text-slate-400'}`} />
                   </button>
                 </div>
 
